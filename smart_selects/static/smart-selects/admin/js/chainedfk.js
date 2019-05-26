@@ -47,8 +47,8 @@
                     $selectField.trigger('change');
                     return;
                 }
-                j = j.response;
                 $.getJSON(url, function (j) {
+                    j = j.response;
                     auto_choose = j.length === 1 && auto_choose;
                     // Append empty label as the first option
                     if (!(init_value || auto_choose)) {
