@@ -1,7 +1,8 @@
 (function ($) {
-    "use strict";
+    // We're declaring global variables, so we cannot use strict mode
+    // "use strict";
 
-    (function chainedfk() {
+    chainedfk = function() {
         return {
             fireEvent: function (element, event) {
                 var evt, rtn;
@@ -46,9 +47,8 @@
                     $selectField.trigger('change');
                     return;
                 }
+                j = j.response;
                 $.getJSON(url, function (j) {
-                    // a quick & dirty hack to get the values appear in dropdown selection
-                    j = j.response;
                     auto_choose = j.length === 1 && auto_choose;
                     // Append empty label as the first option
                     if (!(init_value || auto_choose)) {
@@ -111,5 +111,5 @@
                 }
             }
         };
-    }());
+    }();
 }(jQuery || django.jQuery));
