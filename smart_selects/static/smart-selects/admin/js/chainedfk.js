@@ -48,7 +48,7 @@
                     return;
                 }
                 $.getJSON(url, function (j) {
-                    console.log(j)
+
                     if(j.response != null)
                         j = j.response;
                     auto_choose = j.length === 1 && auto_choose;
