@@ -1,8 +1,7 @@
 (function ($) {
-    // We're declaring global variables, so we cannot use strict mode
-    // "use strict";
+    "use strict";
 
-    chainedfk = function() {
+    (function chainedfk() {
         return {
             fireEvent: function (element, event) {
                 var evt, rtn;
@@ -48,6 +47,8 @@
                     return;
                 }
                 $.getJSON(url, function (j) {
+                    // a quick & dirty hack to get the values appear in dropdown selection
+                    j = j.response;
                     auto_choose = j.length === 1 && auto_choose;
                     // Append empty label as the first option
                     if (!(init_value || auto_choose)) {
@@ -77,7 +78,7 @@
                         $selectField.width(width + 'px');
                     }
 
-                    $selectField.trigger('change');
+                    // $selectField.trigger('change');
                 });
             },
             init: function (chainfield, url, id, init_value, empty_label, auto_choose) {
@@ -110,5 +111,5 @@
                 }
             }
         };
-    }();
+    }());
 }(jQuery || django.jQuery));
