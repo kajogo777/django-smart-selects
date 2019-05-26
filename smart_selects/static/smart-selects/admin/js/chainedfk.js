@@ -48,6 +48,7 @@
                     return;
                 }
                 $.getJSON(url, function (j) {
+                    console.log(j)
                     j = j.response;
                     auto_choose = j.length === 1 && auto_choose;
                     // Append empty label as the first option
@@ -78,7 +79,7 @@
                         $selectField.width(width + 'px');
                     }
 
-                    // $selectField.trigger('change');
+                    $selectField.trigger('change');
                 });
             },
             init: function (chainfield, url, id, init_value, empty_label, auto_choose) {
